@@ -1,0 +1,111 @@
+:root {
+    --navbar-height: 44px;  /* padding 10px top + 10px bottom + ~24px line height */
+}
+
+body{
+    background-color: #1A1D21
+}
+
+a{
+    color: #FFAE00;
+    text-decoration: none;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color:#121417;
+    height:var(--navbar-height);
+    padding: 10px 20px;
+    margin: 0;
+    border-bottom: 2px solid #4F8CFF;
+    box-sizing: border-box;
+
+}
+
+.navbar ul{
+    justify-content: flex-end;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li{
+    margin-left: 20px;
+}
+
+#sidebar{
+    background-color:#121417;
+    width: 200px;
+    height: calc(100vh - var(--navbar-height));
+    position: fixed;
+    top: var(--navbar-height);
+    border-right: 2px solid #4F8CFF;
+    border-top: 0.001px solid #4F8CFF;
+    left: 0;
+    padding: 20px;
+    overflow: hidden;
+    transition:width 0.3s ease, padding 0.3s ease;
+    box-sizing:border-box
+}
+
+
+#sidebar.collapsed {
+  width: 0;
+  padding: 20px 0;
+}
+
+#sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  white-space: nowrap; /* prevents text wrapping during animation */
+}
+
+#sidebar ul li {
+  margin-bottom: 10px;
+}
+
+#toggle-sidebar {
+    position: fixed;
+    top: 50%;          
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #4C3E20;
+    border: 2px solid #FFAE00;
+    color: #FFAE00;
+    font-size: 20px;
+    line-height:1;
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition: left 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    z-index: 999;
+    padding: 0;
+    transform: translateX(50%);
+    left: 200px; /* Start at the edge of the sidebar */
+}
+#toggle-sidebar.collapsed {
+    left: 0;
+    transform: translateX(50%);
+
+}
+
+
+#main-content {
+    margin-left: 200px;        
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    color: #E6E8EB;
+}
+
+#main-content.expanded {
+    margin-left: 0;
+}
