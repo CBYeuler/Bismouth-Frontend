@@ -6,10 +6,10 @@ const themeBtn = document.getElementById('theme-toggle');
 themeBtn.addEventListener('click', () => {
     const isLight = document.documentElement.classList.toggle('light');
     themeBtn.innerHTML = isLight ? '<i data-lucide="moon"></i>' : '<i data-lucide="sun"></i>';
-    lucide.createIcons();   // re-renders the new icon
+    lucide.createIcons();   
 });
 
-// render icons on first load
+
 lucide.createIcons();
 btn.addEventListener('click', () => {
     const isCollapsing = !sidebar.classList.contains('collapsed');
