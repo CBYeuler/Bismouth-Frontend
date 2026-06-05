@@ -101,11 +101,35 @@ a{
 
 #main-content {
     margin-left: 200px;        
-    padding: 20px;
+    padding: 40px 80px;
+    min-height: calc(100vh - var(--navbar-height));
     transition: margin-left 0.3s ease;
     color: #E6E8EB;
+    box-sizing: border-box;
 }
 
 #main-content.expanded {
     margin-left: 0;
+}
+
+#editor {
+    outline: none;             /* removes the browser focus ring */
+    min-height: calc(100vh - var(--navbar-height) - 80px);
+    width: 100%;
+    max-width: 800px;          /* comfortable reading/writing width */
+    margin: 0 auto;            /* center it on wide screens */
+
+    color: #e8d9b8;
+    font-size: 16px;
+    line-height: 1.8;
+    caret-color: #FFAE00;      /* colored cursor */
+
+    white-space: pre-wrap;     /* preserves line breaks */
+}
+
+/* placeholder text when empty */
+#editor:empty::before {
+    content: attr(placeholder);
+    color: #555;
+    pointer-events: none;
 }
